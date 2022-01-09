@@ -4,5 +4,6 @@ public class Main {
         tr.arraysSplit();
         tr.display();
         tr.display2();
+        tr.display3();
     }
 }

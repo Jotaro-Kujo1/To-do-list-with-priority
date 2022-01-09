@@ -5,15 +5,16 @@ import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 
 public class Treatment {
-    //private List<Prepod> prepods = new ArrayList<Prepod>();
     private String res;
     private List<String> prepods;
     private List<String> works;
+    private List<Integer> num;
 
     public Treatment(){
         res = new String();
         prepods = new ArrayList<String>();
         works = new ArrayList<String>();
+        num = new ArrayList<Integer>();
     }
 
     private void start(){
@@ -21,27 +22,31 @@ public class Treatment {
         Scanner in = new Scanner(System.in);
         System.out.println("Сколько всего работ?:");
         countr = in.nextInt();
-        System.out.println(" Введите данные в формате (Фамилия препода, работа), пример: Пышницкий,лаба ");
+        System.out.println(" Введите данные в формате (Фамилия препода, работа, количество работ), пример: Пышницкий лаба 3 ");
         for(int i=0;i<=countr;i++){
            res += in.nextLine() + " ";
         }
         System.out.println(res);
     }
 
-    private List<String> separation(){
+
+    private String[] separation(){
         start();
-        List<String> tmp = new ArrayList<String>();
-        for(String i: res.split(",")){
-            tmp.add(i);
-        }
-        return tmp;
+        String ress = res.replaceFirst("^ *", "");
+        String [] str = ress.split(" ");
+        return str;
     }
 
+
     public void arraysSplit(){
-        List<String> tmp = separation();
-        for(String i:tmp){
-            if(tmp.indexOf(i) == 0 || tmp.indexOf(i)%2==0) prepods.add(i);
-            else works.add(i);
+        int i = 0;
+        String [] str = separation();
+
+        while(i<str.length){
+            prepods.add(str[i]);
+            works.add(str[i+1]);
+            num.add(Integer.parseInt(str[i+2]));
+            i+=3;
         }
     }
 
@@ -54,6 +59,12 @@ public class Treatment {
     public void display2(){
         for (String i:
              works) {
+            System.out.println(i);
+        }
+    }
+    public void display3(){
+        for (Integer i:
+             num) {
             System.out.println(i);
         }
     }
