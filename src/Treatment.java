@@ -6,12 +6,14 @@ import java.util.regex.Matcher;
 
 public class Treatment {
     private String res;
+    //private int countr;
     private List<String> prepods;
     private List<String> works;
     private List<Integer> num;
 
     public Treatment(){
         res = new String();
+        //countr = 0;
         prepods = new ArrayList<String>();
         works = new ArrayList<String>();
         num = new ArrayList<Integer>();
@@ -68,4 +70,14 @@ public class Treatment {
             System.out.println(i);
         }
     }
+    public List<String> getPrepods(){
+        return prepods;
+    }
+    public List<String> getWorks(){
+        return works;
+    }
+    public List<Integer> getNum(){
+        return num;
+    }
+
 }

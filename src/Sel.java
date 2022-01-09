@@ -13,4 +13,13 @@ public class Sel extends Prepod implements Kursach,Laba{
     public void newLabaCost(){
         laba_Cost = laba_Default_Cost * 4;
     }
+
+    public void calculationFinalCostKursach() {
+        final_Cost = kursach_Cost * num_Of_Works;
+    }
+
+    @Override
+    public void calculationFinalCostLaba() {
+        final_Cost = laba_Cost * num_Of_Works;
+    }
 }
