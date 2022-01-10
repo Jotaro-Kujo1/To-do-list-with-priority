@@ -7,6 +7,7 @@ public class Yud extends Prepod implements Kursach,Laba{
         kursach_Cost = kursach_Default_Cost;
         laba_Cost = laba_Default_Cost;
         name = "Юдина";
+        newLabaCost();
     }
 
     public void newKursachCost(){
@@ -22,5 +23,8 @@ public class Yud extends Prepod implements Kursach,Laba{
     @Override
     public void calculationFinalCostLaba() {
         final_Cost = laba_Cost * num_Of_Works;
+    }
+    public String getName(){
+        return name;
     }
 }

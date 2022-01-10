@@ -7,6 +7,7 @@ public class Pish extends Prepod implements Kursach, Laba{
         kursach_Cost = kursach_Default_Cost;
         laba_Cost = laba_Default_Cost;
         name = "Пышницкий";
+        newLabaCost();
     }
 
     public void newKursachCost(){
@@ -24,5 +25,8 @@ public class Pish extends Prepod implements Kursach, Laba{
     @Override
     public void calculationFinalCostLaba() {
         final_Cost = laba_Cost * num_Of_Works;
+    }
+    public String getName(){
+        return name;
     }
 }
