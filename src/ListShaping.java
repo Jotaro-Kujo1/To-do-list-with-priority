@@ -8,10 +8,12 @@ public class ListShaping {
     private Gan ganicheva;
     private Vin vinogradova;
     private Map<String,Integer> raiting;
+    private List<Integer> finRait;
 
     public ListShaping(){
         tr = new Treatment();
         raiting = new HashMap<String, Integer>();
+        finRait = new ArrayList<Integer>();
         tr.arraysSplit();
         classCreating();
         raitingForm();
@@ -29,6 +31,7 @@ public class ListShaping {
                     pishnitskiy.setNum_Of_Works(tmpNums.get(i));
                     pishnitskiy.calculationFinalCostLaba();
                     raiting.put(pishnitskiy.getName(),pishnitskiy.final_Cost);
+                    finRait.add(pishnitskiy.final_Cost);
                     break;
                 case("Селяничев"):
                     selyanichev = new Sel();
@@ -36,6 +39,7 @@ public class ListShaping {
                     selyanichev.setNum_Of_Works(tmpNums.get(i));
                     selyanichev.calculationFinalCostLaba();
                     raiting.put(selyanichev.getName(),selyanichev.final_Cost);
+                    finRait.add(selyanichev.final_Cost);
                     break;
                 case("Юдина"):
                     yudina = new Yud();
@@ -43,6 +47,7 @@ public class ListShaping {
                     yudina.setNum_Of_Works(tmpNums.get(i));
                     yudina.calculationFinalCostLaba();
                     raiting.put(yudina.getName(),yudina.final_Cost);
+                    finRait.add(yudina.final_Cost);
                     break;
                 case("Ганичева"):
                     ganicheva = new Gan();
@@ -50,6 +55,7 @@ public class ListShaping {
                     ganicheva.setNum_Of_Works(tmpNums.get(i));
                     ganicheva.calculationFinalCostLaba();
                     raiting.put(ganicheva.getName(),ganicheva.final_Cost);
+                    finRait.add(ganicheva.final_Cost);
                     break;
                 case("Виноградова"):
                     vinogradova = new Vin();
@@ -57,6 +63,7 @@ public class ListShaping {
                     vinogradova.setNum_Of_Works(tmpNums.get(i));
                     vinogradova.calculationFinalCostLaba();
                     raiting.put(vinogradova.getName(),vinogradova.final_Cost);
+                    finRait.add(vinogradova.final_Cost);
                     break;
             }
         }
@@ -64,7 +71,40 @@ public class ListShaping {
 
     private void raitingForm(){
         System.out.println(raiting);
+        List<String> tmpPrepods = tr.getPrepods();
+        //List<Integer> tmpNums = tr.getNum();
         SortedSet<Integer> values = new TreeSet<Integer>(raiting.values());
+        List<Integer> valuesCopy = new ArrayList<Integer>();
+
+        for(int i=0;i<tmpPrepods.size();i++){
+            Integer a = values.last();
+            valuesCopy.add(a);
+        }
+
         System.out.println(values);
+
+        for (Integer i:
+             valuesCopy) {
+            for(int j=0;i<finRait.size();i++){
+                if(valuesCopy.get(i) == finRait.get(j)){
+                    Integer i1 = finRait.get(i);
+                    Integer i2 = finRait.get(j);
+                    finRait.remove(i);
+                    finRait.remove(j);
+                    finRait.add(i, i2);
+                    finRait.add(j,i1);
+
+                    String pr1 = tmpPrepods.get(i);
+                    String pr2 = tmpPrepods.get(j);
+                    tmpPrepods.remove(i);
+                    tmpPrepods.remove(j);
+                    tmpPrepods.add(i, pr2);
+                    tmpPrepods.add(j,pr1);
+                }
+            }
+        }
+        System.out.println(tmpPrepods);
+        System.out.println(finRait);
     }
+
 }
