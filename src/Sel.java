@@ -8,6 +8,7 @@ public class Sel extends Prepod implements Kursach,Laba{
         laba_Cost = laba_Default_Cost;
         name = "Селяничев";
         newLabaCost();
+        newKursachCost();
     }
 
     public void newKursachCost(){

@@ -22,46 +22,93 @@ public class ListShaping {
     private void classCreating(){
         List<String> tmpPrepods = tr.getPrepods();
         List<Integer> tmpNums = tr.getNum();
+        List<String> tmpWorks = tr.getWorks();
         for(int i=0;i<tmpPrepods.size();i++){
             String str = tmpPrepods.get(i);
+            String temp;
             switch(str){
                 case("Пышницкий"):
                     pishnitskiy = new Pish();
+                    temp = tmpWorks.get(i);
                     System.out.println("Пыша заспавнился");
                     pishnitskiy.setNum_Of_Works(tmpNums.get(i));
-                    pishnitskiy.calculationFinalCostLaba();
+                    switch (temp){
+                        case("лаба"):
+                            pishnitskiy.calculationFinalCostLaba();
+                            break;
+                        case("курсач"):
+                            pishnitskiy.calculationFinalCostKursach();
+                            break;
+                    }
+                    //pishnitskiy.calculationFinalCostLaba();
                     raiting.put(pishnitskiy.getName(),pishnitskiy.final_Cost);
                     finRait.add(pishnitskiy.final_Cost);
                     break;
                 case("Селяничев"):
                     selyanichev = new Sel();
+                    temp = tmpWorks.get(i);
                     System.out.println("Селян заспавнился");
                     selyanichev.setNum_Of_Works(tmpNums.get(i));
-                    selyanichev.calculationFinalCostLaba();
+                    switch (temp){
+                        case("лаба"):
+                            selyanichev.calculationFinalCostLaba();
+                            break;
+                        case("курсач"):
+                            selyanichev.calculationFinalCostKursach();
+                            break;
+                    }
+                    //selyanichev.calculationFinalCostLaba();
                     raiting.put(selyanichev.getName(),selyanichev.final_Cost);
                     finRait.add(selyanichev.final_Cost);
                     break;
                 case("Юдина"):
                     yudina = new Yud();
+                    temp = tmpWorks.get(i);
                     System.out.println("Юдина заспавнился");
                     yudina.setNum_Of_Works(tmpNums.get(i));
-                    yudina.calculationFinalCostLaba();
+                    switch (temp){
+                        case("лаба"):
+                            yudina.calculationFinalCostLaba();
+                            break;
+                        case("курсач"):
+                            yudina.calculationFinalCostKursach();
+                            break;
+                    }
+                    //yudina.calculationFinalCostLaba();
                     raiting.put(yudina.getName(),yudina.final_Cost);
                     finRait.add(yudina.final_Cost);
                     break;
                 case("Ганичева"):
                     ganicheva = new Gan();
+                    temp = tmpWorks.get(i);
                     System.out.println("Ганичева заспавнился");
                     ganicheva.setNum_Of_Works(tmpNums.get(i));
-                    ganicheva.calculationFinalCostLaba();
+                    switch (temp){
+                        case("лаба"):
+                            ganicheva.calculationFinalCostLaba();
+                            break;
+                        case("курсач"):
+                            ganicheva.calculationFinalCostKursach();
+                            break;
+                    }
+                    //ganicheva.calculationFinalCostLaba();
                     raiting.put(ganicheva.getName(),ganicheva.final_Cost);
                     finRait.add(ganicheva.final_Cost);
                     break;
                 case("Виноградова"):
                     vinogradova = new Vin();
+                    temp = tmpWorks.get(i);
                     System.out.println("Виноградова заспавнился");
                     vinogradova.setNum_Of_Works(tmpNums.get(i));
-                    vinogradova.calculationFinalCostLaba();
+                    switch (temp){
+                        case("лаба"):
+                            vinogradova.calculationFinalCostLaba();
+                            break;
+                        case("курсач"):
+                            vinogradova.calculationFinalCostKursach();
+                            break;
+                    }
+                    //vinogradova.calculationFinalCostLaba();
                     raiting.put(vinogradova.getName(),vinogradova.final_Cost);
                     finRait.add(vinogradova.final_Cost);
                     break;
@@ -106,5 +153,4 @@ public class ListShaping {
         System.out.println(tmpPrepods);
         System.out.println(finRait);
     }
-
 }

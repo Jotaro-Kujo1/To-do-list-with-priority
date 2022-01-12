@@ -8,6 +8,7 @@ public class Gan extends Prepod implements Kursach,Laba{
         laba_Cost = laba_Default_Cost;
         name = "Ганичева";
         newLabaCost();
+        newKursachCost();
     }
 
     public void newKursachCost(){

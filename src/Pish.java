@@ -8,6 +8,7 @@ public class Pish extends Prepod implements Kursach, Laba{
         laba_Cost = laba_Default_Cost;
         name = "Пышницкий";
         newLabaCost();
+        newKursachCost();
     }
 
     public void newKursachCost(){

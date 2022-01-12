@@ -8,6 +8,7 @@ public class Vin extends Prepod implements Kursach,Laba{
         laba_Cost = laba_Default_Cost;
         name = "Виноградова";
         newLabaCost();
+        newKursachCost();
     }
 
     public void newKursachCost(){

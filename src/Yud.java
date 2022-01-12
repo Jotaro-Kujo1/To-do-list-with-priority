@@ -8,6 +8,7 @@ public class Yud extends Prepod implements Kursach,Laba{
         laba_Cost = laba_Default_Cost;
         name = "Юдина";
         newLabaCost();
+        newKursachCost();
     }
 
     public void newKursachCost(){
