@@ -9,11 +9,15 @@ public class ListShaping {
     private Vin vinogradova;
     private Map<String,Integer> raiting;
     private List<Integer> finRait;
+    private List<Integer> finalRaitAfterSort;
+    private List<String> prepodsAfterSort;
 
     public ListShaping(){
         tr = new Treatment();
         raiting = new HashMap<String, Integer>();
         finRait = new ArrayList<Integer>();
+        finalRaitAfterSort = new ArrayList<Integer>();
+        prepodsAfterSort = new ArrayList<String>();
         tr.arraysSplit();
         classCreating();
         raitingForm();
@@ -122,35 +126,40 @@ public class ListShaping {
         //List<Integer> tmpNums = tr.getNum();
         SortedSet<Integer> values = new TreeSet<Integer>(raiting.values());
         List<Integer> valuesCopy = new ArrayList<Integer>();
+        int usls = finRait.size();
+
+        System.out.println(values);
 
         for(int i=0;i<tmpPrepods.size();i++){
             Integer a = values.last();
             valuesCopy.add(a);
+            values.remove(a);
         }
 
-        System.out.println(values);
+        System.out.println(valuesCopy);
 
-        for (Integer i:
-             valuesCopy) {
-            for(int j=0;i<finRait.size();i++){
-                if(valuesCopy.get(i) == finRait.get(j)){
+        for (int i=0;i<valuesCopy.size();i++){
+            for(int j=0;j<finRait.size();j++){
+                int a = valuesCopy.get(i);
+                int b = finRait.get(j);
+                if(a == b){
                     Integer i1 = finRait.get(i);
                     Integer i2 = finRait.get(j);
-                    finRait.remove(i);
-                    finRait.remove(j);
-                    finRait.add(i, i2);
-                    finRait.add(j,i1);
+                    finalRaitAfterSort.add(i2);
+                    finalRaitAfterSort.add(i1);
+
+
 
                     String pr1 = tmpPrepods.get(i);
                     String pr2 = tmpPrepods.get(j);
-                    tmpPrepods.remove(i);
-                    tmpPrepods.remove(j);
-                    tmpPrepods.add(i, pr2);
-                    tmpPrepods.add(j,pr1);
+                    prepodsAfterSort.add(i, pr2);
+                    prepodsAfterSort.add(j,pr1);
+
+
                 }
             }
         }
-        System.out.println(tmpPrepods);
-        System.out.println(finRait);
+        System.out.println(prepodsAfterSort);
+        System.out.println(finalRaitAfterSort);
     }
 }
