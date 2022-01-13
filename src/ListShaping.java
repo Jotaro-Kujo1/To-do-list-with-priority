@@ -123,11 +123,11 @@ public class ListShaping {
     private void raitingForm(){
         System.out.println(raiting);
         List<String> tmpPrepods = tr.getPrepods();
-        //List<Integer> tmpNums = tr.getNum();
+        List<Integer> tmpNums = tr.getNum();
         SortedSet<Integer> values = new TreeSet<Integer>(raiting.values());
-        List<Integer> valuesCopy = new ArrayList<Integer>();
-        int usls = finRait.size();
+        List<Integer> valuesCopy = new ArrayList<Integer>();//Сортированный по убыванию массив баллов
 
+        System.out.print("sorted");
         System.out.println(values);
 
         for(int i=0;i<tmpPrepods.size();i++){
@@ -136,30 +136,22 @@ public class ListShaping {
             values.remove(a);
         }
 
+        System.out.print("sorted again");
         System.out.println(valuesCopy);
 
-        for (int i=0;i<valuesCopy.size();i++){
+        for(int i=0;i<valuesCopy.size();i++){
+            int sorted = valuesCopy.get(i);
             for(int j=0;j<finRait.size();j++){
-                int a = valuesCopy.get(i);
-                int b = finRait.get(j);
-                if(a == b){
-                    Integer i1 = finRait.get(i);
-                    Integer i2 = finRait.get(j);
-                    finalRaitAfterSort.add(i2);
-                    finalRaitAfterSort.add(i1);
-
-
-
-                    String pr1 = tmpPrepods.get(i);
-                    String pr2 = tmpPrepods.get(j);
-                    prepodsAfterSort.add(i, pr2);
-                    prepodsAfterSort.add(j,pr1);
-
-
+                int nonsorted = finRait.get(j);
+                if(sorted == nonsorted){
+                    String heh = tmpPrepods.get(j);
+                    prepodsAfterSort.add(heh);
                 }
             }
         }
-        System.out.println(prepodsAfterSort);
-        System.out.println(finalRaitAfterSort);
+
+        System.out.println("/////////////////");
+        System.out.println(valuesCopy);//Тут значения
+        System.out.println(prepodsAfterSort);//Тут фамилии
     }
 }
