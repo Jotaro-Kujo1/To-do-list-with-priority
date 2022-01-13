@@ -44,7 +44,6 @@ public class ListShaping {
                             pishnitskiy.calculationFinalCostKursach();
                             break;
                     }
-                    //pishnitskiy.calculationFinalCostLaba();
                     raiting.put(pishnitskiy.getName(),pishnitskiy.final_Cost);
                     finRait.add(pishnitskiy.final_Cost);
                     break;
@@ -61,7 +60,6 @@ public class ListShaping {
                             selyanichev.calculationFinalCostKursach();
                             break;
                     }
-                    //selyanichev.calculationFinalCostLaba();
                     raiting.put(selyanichev.getName(),selyanichev.final_Cost);
                     finRait.add(selyanichev.final_Cost);
                     break;
@@ -78,7 +76,6 @@ public class ListShaping {
                             yudina.calculationFinalCostKursach();
                             break;
                     }
-                    //yudina.calculationFinalCostLaba();
                     raiting.put(yudina.getName(),yudina.final_Cost);
                     finRait.add(yudina.final_Cost);
                     break;
@@ -95,7 +92,6 @@ public class ListShaping {
                             ganicheva.calculationFinalCostKursach();
                             break;
                     }
-                    //ganicheva.calculationFinalCostLaba();
                     raiting.put(ganicheva.getName(),ganicheva.final_Cost);
                     finRait.add(ganicheva.final_Cost);
                     break;
@@ -112,7 +108,6 @@ public class ListShaping {
                             vinogradova.calculationFinalCostKursach();
                             break;
                     }
-                    //vinogradova.calculationFinalCostLaba();
                     raiting.put(vinogradova.getName(),vinogradova.final_Cost);
                     finRait.add(vinogradova.final_Cost);
                     break;
@@ -121,26 +116,20 @@ public class ListShaping {
     }
 
     private void raitingForm(){
-        System.out.println(raiting);
         List<String> tmpPrepods = tr.getPrepods();
-        List<Integer> tmpNums = tr.getNum();
         SortedSet<Integer> values = new TreeSet<Integer>(raiting.values());
-        List<Integer> valuesCopy = new ArrayList<Integer>();//Сортированный по убыванию массив баллов
 
-        System.out.print("sorted");
-        System.out.println(values);
 
         for(int i=0;i<tmpPrepods.size();i++){
             Integer a = values.last();
-            valuesCopy.add(a);
+            finalRaitAfterSort.add(a);
             values.remove(a);
         }
 
-        System.out.print("sorted again");
-        System.out.println(valuesCopy);
 
-        for(int i=0;i<valuesCopy.size();i++){
-            int sorted = valuesCopy.get(i);
+
+        for(int i=0;i<finalRaitAfterSort.size();i++){
+            int sorted = finalRaitAfterSort.get(i);
             for(int j=0;j<finRait.size();j++){
                 int nonsorted = finRait.get(j);
                 if(sorted == nonsorted){
@@ -150,8 +139,7 @@ public class ListShaping {
             }
         }
 
-        System.out.println("/////////////////");
-        System.out.println(valuesCopy);//Тут значения
+        System.out.println(finalRaitAfterSort);//Тут значения
         System.out.println(prepodsAfterSort);//Тут фамилии
     }
 }
