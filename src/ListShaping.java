@@ -11,6 +11,7 @@ public class ListShaping {
     private List<Integer> finRait;
     private List<Integer> finalRaitAfterSort;
     private List<String> prepodsAfterSort;
+    private List<String> worksAfterSort;
 
     public ListShaping(){
         tr = new Treatment();
@@ -18,6 +19,7 @@ public class ListShaping {
         finRait = new ArrayList<Integer>();
         finalRaitAfterSort = new ArrayList<Integer>();
         prepodsAfterSort = new ArrayList<String>();
+        worksAfterSort = new ArrayList<String>();
         tr.arraysSplit();
         classCreating();
         raitingForm();
@@ -117,6 +119,7 @@ public class ListShaping {
 
     private void raitingForm(){
         List<String> tmpPrepods = tr.getPrepods();
+        List<String> tmpWorks = tr.getWorks();
         SortedSet<Integer> values = new TreeSet<Integer>(raiting.values());
 
 
@@ -133,13 +136,16 @@ public class ListShaping {
             for(int j=0;j<finRait.size();j++){
                 int nonsorted = finRait.get(j);
                 if(sorted == nonsorted){
-                    String heh = tmpPrepods.get(j);
-                    prepodsAfterSort.add(heh);
+                    String pr = tmpPrepods.get(j);
+                    String wk = tmpWorks.get(j);
+                    prepodsAfterSort.add(pr);
+                    worksAfterSort.add(wk);
                 }
             }
         }
 
         System.out.println(finalRaitAfterSort);//Тут значения
         System.out.println(prepodsAfterSort);//Тут фамилии
+        System.out.println(worksAfterSort);//Тут работы
     }
 }
