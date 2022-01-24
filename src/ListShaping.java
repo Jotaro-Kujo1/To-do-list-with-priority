@@ -12,6 +12,7 @@ public class ListShaping {
     private List<Integer> finalRaitAfterSort;
     private List<String> prepodsAfterSort;
     private List<String> worksAfterSort;
+    private List<Integer> numOfWorksAfterSort;
 
     public ListShaping(){
         tr = new Treatment();
@@ -20,6 +21,7 @@ public class ListShaping {
         finalRaitAfterSort = new ArrayList<Integer>();
         prepodsAfterSort = new ArrayList<String>();
         worksAfterSort = new ArrayList<String>();
+        numOfWorksAfterSort = new ArrayList<Integer>();
         tr.arraysSplit();
         classCreating();
         raitingForm();
@@ -144,8 +146,17 @@ public class ListShaping {
             }
         }
 
+
         System.out.println(finalRaitAfterSort);//Тут значения
         System.out.println(prepodsAfterSort);//Тут фамилии
         System.out.println(worksAfterSort);//Тут работы
+    }
+
+    public List<Event> eventCreating(){
+        List<Event> myEvents = new ArrayList<Event>();
+        for(int i=0;i<worksAfterSort.size();i++){
+            myEvents.add(new Event(prepodsAfterSort.get(i), worksAfterSort.get(i), finalRaitAfterSort.get(i)));
+        }
+        return myEvents;
     }
 }

@@ -9,20 +9,14 @@ import javafx.scene.control.CheckBox;
 import javafx.geometry.Orientation;
 import javafx.geometry.Insets;
 
-public class Main extends Application {
+import java.util.List;
 
-    ListShaping ls;
+public class Main {
 
     public static void main(String[] args) {
-        Application.launch(args);
+        ListShaping ls = new ListShaping();
+        List<Event> ev = ls.eventCreating();
+        ev.forEach(System.out::println);
     }
 
-    public void start(Stage stage) throws Exception{
-
-        ls = new ListShaping();
-        Parent root = FXMLLoader.load(getClass().getResource("shablon.fxml"));
-        stage.setTitle(" Список дел ");
-        stage.setScene(new Scene(root));
-        stage.show();
-    }
 }
