@@ -1,5 +1,9 @@
 import java.util.*;
 
+/*
+В дальнейшем думаю разбить класс на более маленькие классы.
+Он получился слишком перегруженным с моей точки зрения
+ */
 public class ListShaping {
     private Treatment tr;
     private Pish pishnitskiy;
@@ -13,18 +17,23 @@ public class ListShaping {
     private List<String> prepodsAfterSort;
     private List<String> worksAfterSort;
     private List<Integer> numOfWorksAfterSort;
+    private Registration rg;
 
     public ListShaping(){
-        tr = new Treatment();
-        raiting = new HashMap<String, Integer>();
-        finRait = new ArrayList<Integer>();
-        finalRaitAfterSort = new ArrayList<Integer>();
-        prepodsAfterSort = new ArrayList<String>();
-        worksAfterSort = new ArrayList<String>();
-        numOfWorksAfterSort = new ArrayList<Integer>();
-        tr.arraysSplit();
-        classCreating();
-        raitingForm();
+        rg = new Registration();
+        rg.startReg();
+        if(rg.getChReg()){
+            tr = new Treatment();
+            raiting = new HashMap<String, Integer>();
+            finRait = new ArrayList<Integer>();
+            finalRaitAfterSort = new ArrayList<Integer>();
+            prepodsAfterSort = new ArrayList<String>();
+            worksAfterSort = new ArrayList<String>();
+            numOfWorksAfterSort = new ArrayList<Integer>();
+            tr.arraysSplit();
+            classCreating();
+            raitingForm();
+        }
     }
 
     private void classCreating(){
