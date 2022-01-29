@@ -131,6 +131,7 @@ public class ListShaping {
     private void raitingForm(){
         List<String> tmpPrepods = tr.getPrepods();
         List<String> tmpWorks = tr.getWorks();
+        List<Integer> tmpNums = tr.getNum();
         SortedSet<Integer> values = new TreeSet<Integer>(raiting.values());
 
 
@@ -149,8 +150,10 @@ public class ListShaping {
                 if(sorted == nonsorted){
                     String pr = tmpPrepods.get(j);
                     String wk = tmpWorks.get(j);
+                    Integer ns = tmpNums.get(j);
                     prepodsAfterSort.add(pr);
                     worksAfterSort.add(wk);
+                    numOfWorksAfterSort.add(ns);
                 }
             }
         }
@@ -159,12 +162,13 @@ public class ListShaping {
         System.out.println(finalRaitAfterSort);//Тут значения
         System.out.println(prepodsAfterSort);//Тут фамилии
         System.out.println(worksAfterSort);//Тут работы
+        System.out.println(numOfWorksAfterSort);//Количество работ
     }
 
     public List<Event> eventCreating(){
         List<Event> myEvents = new ArrayList<Event>();
         for(int i=0;i<worksAfterSort.size();i++){
-            myEvents.add(new Event(prepodsAfterSort.get(i), worksAfterSort.get(i), finalRaitAfterSort.get(i)));
+            myEvents.add(new Event(prepodsAfterSort.get(i), worksAfterSort.get(i),numOfWorksAfterSort.get(i), finalRaitAfterSort.get(i)));
         }
         return myEvents;
     }
