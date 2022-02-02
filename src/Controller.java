@@ -52,6 +52,5 @@ public class Controller {
             List<Event> ev = ls.eventCreating();
             ev.forEach(System.out::println);
         });
-
     }
 }
