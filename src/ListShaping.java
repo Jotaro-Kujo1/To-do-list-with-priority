@@ -17,23 +17,19 @@ public class ListShaping {
     private List<String> prepodsAfterSort;
     private List<String> worksAfterSort;
     private List<Integer> numOfWorksAfterSort;
-    private Registration rg;
+
 
     public ListShaping(){
-        rg = new Registration();
-        rg.startReg();
-        if(rg.getChReg()){
-            tr = new Treatment();
-            raiting = new HashMap<String, Integer>();
-            finRait = new ArrayList<Integer>();
-            finalRaitAfterSort = new ArrayList<Integer>();
-            prepodsAfterSort = new ArrayList<String>();
-            worksAfterSort = new ArrayList<String>();
-            numOfWorksAfterSort = new ArrayList<Integer>();
-            tr.arraysSplit();
-            classCreating();
-            raitingForm();
-        }
+        tr = new Treatment();
+        raiting = new HashMap<String, Integer>();
+        finRait = new ArrayList<Integer>();
+        finalRaitAfterSort = new ArrayList<Integer>();
+        prepodsAfterSort = new ArrayList<String>();
+        worksAfterSort = new ArrayList<String>();
+        numOfWorksAfterSort = new ArrayList<Integer>();
+        tr.arraysSplit();
+        classCreating();
+        raitingForm();
     }
 
     private void classCreating(){

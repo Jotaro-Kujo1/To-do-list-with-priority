@@ -33,6 +33,27 @@ public class Controller {
 
     @FXML
     void initialize() {
+        signInButton.setOnAction(event -> {
+            String userLogin;
+            String userPassword;
+            userLogin = login.getText().trim();
+            userPassword = password.getText().trim();
+            if(userLogin != "" && userPassword != ""){
+                signInButton.getScene().getWindow().hide();
+                FXMLLoader loader = new FXMLLoader();
+                loader.setLocation(getClass().getResource("main_shablon.fxml"));
+                try {
+                    loader.load();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                Parent root = loader.getRoot();
+                Stage stage = new Stage();
+                stage.setScene(new Scene(root));
+                stage.showAndWait();
+            }else System.out.println("Popushen");
+        });
+
         signUpButton.setOnAction(event ->{
             signUpButton.getScene().getWindow().hide();
             FXMLLoader loader = new FXMLLoader();
@@ -47,10 +68,12 @@ public class Controller {
             stage.setScene(new Scene(root));
             stage.showAndWait();
         });
+        /*
         signInButton.setOnAction(event -> {
             ListShaping ls = new ListShaping();
             List<Event> ev = ls.eventCreating();
             ev.forEach(System.out::println);
         });
+         */
     }
 }
