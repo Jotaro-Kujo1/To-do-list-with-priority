@@ -29,6 +29,9 @@ public class RegistrationController {
     @FXML
     void initialize() {
         signUpButtonReg.setOnAction(event -> {
+            DataBaseHandler db = new DataBaseHandler();
+            db.userRegistration(loginReg.getText(),passwordReg.getText());
+
             signUpButtonReg.getScene().getWindow().hide();
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("shablon.fxml"));
@@ -41,6 +44,7 @@ public class RegistrationController {
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
             stage.showAndWait();
+
             //Тут добавить считывание с текстбоксов и пуш в БД
         });
 
