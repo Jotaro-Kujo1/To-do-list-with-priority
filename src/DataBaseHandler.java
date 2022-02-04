@@ -20,4 +20,19 @@ public class DataBaseHandler extends Configs{
             e.printStackTrace();
         }
     }
+
+    public boolean userLogIn(String login, String password) {
+        ResultSet rset = null;
+        String sqlQuery = "SELECT * FROM todolist.users WHERE login =? AND password =?";
+        try (PreparedStatement statement = getDbConnection().prepareStatement(sqlQuery)) {
+            statement.setString(1, login);
+            statement.setString(2, password);
+            rset = statement.executeQuery();
+            if(rset.next())return true;
+            else return false;
+        } catch (SQLException | ClassNotFoundException ex) {
+            ex.printStackTrace();
+            return false;
+        }
+    }
 }

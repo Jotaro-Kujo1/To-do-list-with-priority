@@ -1,5 +1,7 @@
 import java.io.IOException;
 import java.net.URL;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -34,11 +36,9 @@ public class Controller {
     @FXML
     void initialize() {
         signInButton.setOnAction(event -> {
-            String userLogin;
-            String userPassword;
-            userLogin = login.getText().trim();
-            userPassword = password.getText().trim();
-            if(userLogin != "" && userPassword != ""){
+            DataBaseHandler db = new DataBaseHandler();
+            boolean lc = db.userLogIn(login.getText(), password.getText());
+            if(lc) {
                 signInButton.getScene().getWindow().hide();
                 FXMLLoader loader = new FXMLLoader();
                 loader.setLocation(getClass().getResource("main_shablon.fxml"));
@@ -51,7 +51,9 @@ public class Controller {
                 Stage stage = new Stage();
                 stage.setScene(new Scene(root));
                 stage.showAndWait();
-            }else System.out.println("Popushen");
+            }else{
+                System.out.println("fail");
+            }
         });
 
         signUpButton.setOnAction(event ->{
@@ -76,4 +78,5 @@ public class Controller {
         });
          */
     }
+
 }
