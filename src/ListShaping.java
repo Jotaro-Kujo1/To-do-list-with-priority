@@ -19,8 +19,8 @@ public class ListShaping {
     private List<Integer> numOfWorksAfterSort;
 
 
-    public ListShaping(){
-        tr = new Treatment();
+    public ListShaping(Treatment tr){
+        this.tr = tr;
         raiting = new HashMap<String, Integer>();
         finRait = new ArrayList<Integer>();
         finalRaitAfterSort = new ArrayList<Integer>();
@@ -161,10 +161,10 @@ public class ListShaping {
         System.out.println(numOfWorksAfterSort);//Количество работ
     }
 
-    public List<Event> eventCreating(){
-        List<Event> myEvents = new ArrayList<Event>();
+    public List<Task> eventCreating(){
+        List<Task> myEvents = new ArrayList<Task>();
         for(int i=0;i<worksAfterSort.size();i++){
-            myEvents.add(new Event(prepodsAfterSort.get(i), worksAfterSort.get(i),numOfWorksAfterSort.get(i), finalRaitAfterSort.get(i)));
+            myEvents.add(new Task(prepodsAfterSort.get(i), worksAfterSort.get(i),numOfWorksAfterSort.get(i), finalRaitAfterSort.get(i)));
         }
         return myEvents;
     }

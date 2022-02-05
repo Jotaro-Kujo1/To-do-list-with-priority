@@ -35,4 +35,18 @@ public class DataBaseHandler extends Configs{
             return false;
         }
     }
+
+
+    public void addPrepod(String name, String work, int nums, int raiting){
+        String sqlQuery = "INSERT INTO todolist.prepods (name,work,nums,raiting) VALUES(?,?,?,?)";
+        try(PreparedStatement statement = getDbConnection().prepareStatement(sqlQuery)){
+            statement.setString(1,name);
+            statement.setString(2,work);
+            statement.setInt(3,nums);
+            statement.setInt(4,raiting);
+            statement.execute();
+        }catch (SQLException | ClassNotFoundException ex){
+            ex.printStackTrace();
+        }
+    }
 }

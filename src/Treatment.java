@@ -11,14 +11,15 @@ public class Treatment {
     private List<String> works;
     private List<Integer> num;
 
-    public Treatment(){
-        res = new String();
+    public Treatment(String str){
+        res = str;
         //countr = 0;
         prepods = new ArrayList<String>();
         works = new ArrayList<String>();
         num = new ArrayList<Integer>();
     }
 
+    /*
     private void start(){
         int countr;
         Scanner in = new Scanner(System.in);
@@ -30,10 +31,10 @@ public class Treatment {
         }
         System.out.println(res);
     }
-
+*/
 
     private String[] separation(){
-        start();
+        //start();
         String ress = res.replaceFirst("^ *", "");
         String [] str = ress.split(" ");
         return str;
