@@ -11,10 +11,10 @@
    <children>
       <TableView fx:id="infoTable" layoutX="21.0" layoutY="21.0" prefHeight="228.0" prefWidth="363.0">
         <columns>
-          <TableColumn prefWidth="112.0" text="Препод" fx:id="prepodColumn"/>
-          <TableColumn prefWidth="113.0" text="Задание" fx:id="workColumn"/>
-          <TableColumn prefWidth="79.0" text="Количество" fx:id="numsColumn"/>
-          <TableColumn prefWidth="58.0" text="Баллы" fx:id="raitingColumn"/>
+          <TableColumn fx:id="prepodColumn" prefWidth="112.0" text="Препод" />
+          <TableColumn fx:id="workColumn" prefWidth="113.0" text="Задание" />
+          <TableColumn fx:id="numsColumn" prefWidth="79.0" text="Количество" />
+          <TableColumn fx:id="raitingColumn" prefWidth="58.0" text="Баллы" />
         </columns>
       </TableView>
       <TextField fx:id="textbox" layoutX="21.0" layoutY="280.0" prefHeight="21.0" prefWidth="363.0" promptText="Введите информацию">
@@ -22,6 +22,7 @@
             <Font size="17.0" />
          </font>
       </TextField>
-      <Button fx:id="addButton" layoutX="133.0" layoutY="346.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="139.0" style="-fx-background-color: #FF6347;" text="Добавить" />
+      <Button fx:id="addButton" layoutX="40.0" layoutY="345.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="139.0" style="-fx-background-color: #FF6347;" text="Добавить" />
+      <Button fx:id="closeButton" layoutX="224.0" layoutY="345.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="139.0" style="-fx-background-color: #FF6347;" text="Закрыть" />
    </children>
 </AnchorPane>

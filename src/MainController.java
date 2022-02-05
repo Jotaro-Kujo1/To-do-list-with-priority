@@ -10,6 +10,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
 public class MainController {
 
@@ -42,6 +43,9 @@ public class MainController {
     private Button addButton;
 
     @FXML
+    private Button closeButton;
+
+    @FXML
     void initialize() {
         prepodColumn.setCellValueFactory(new PropertyValueFactory<Task, String>("pr"));
         workColumn.setCellValueFactory(new PropertyValueFactory<Task, String>("work"));
@@ -60,6 +64,10 @@ public class MainController {
             //ev.forEach(System.out::println);
         });
 
+        closeButton.setOnAction(event -> {
+            Stage stage = (Stage) closeButton.getScene().getWindow();
+            stage.close();
+        });
     }
 }
 
