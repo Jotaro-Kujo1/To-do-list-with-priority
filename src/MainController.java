@@ -65,6 +65,8 @@ public class MainController {
         });
 
         closeButton.setOnAction(event -> {
+            DataBaseHandler db = new DataBaseHandler();
+            db.addPrepod(evv);
             Stage stage = (Stage) closeButton.getScene().getWindow();
             stage.close();
         });

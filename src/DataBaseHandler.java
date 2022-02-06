@@ -1,3 +1,5 @@
+import javafx.collections.ObservableList;
+
 import java.sql.*;
 
 public class DataBaseHandler extends Configs{
@@ -37,16 +39,19 @@ public class DataBaseHandler extends Configs{
     }
 
 
-    public void addPrepod(String name, String work, int nums, int raiting){
-        String sqlQuery = "INSERT INTO todolist.prepods (name,work,nums,raiting) VALUES(?,?,?,?)";
-        try(PreparedStatement statement = getDbConnection().prepareStatement(sqlQuery)){
-            statement.setString(1,name);
-            statement.setString(2,work);
-            statement.setInt(3,nums);
-            statement.setInt(4,raiting);
-            statement.execute();
-        }catch (SQLException | ClassNotFoundException ex){
-            ex.printStackTrace();
+    public void addPrepod(ObservableList<Task> evv){
+        for (Task i:evv
+             ) {
+            String sqlQuery = "INSERT INTO todolist.works (name,work,nums,raiting) VALUES(?,?,?,?)";
+            try(PreparedStatement statement = getDbConnection().prepareStatement(sqlQuery)){
+                statement.setString(1,i.getPr());
+                statement.setString(2,i.getWork());
+                statement.setInt(3,i.getNums());
+                statement.setInt(4,i.getRaiting());
+                statement.execute();
+            }catch (SQLException | ClassNotFoundException ex){
+                ex.printStackTrace();
+            }
         }
     }
 }
