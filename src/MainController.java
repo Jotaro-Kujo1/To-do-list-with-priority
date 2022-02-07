@@ -1,4 +1,8 @@
 import java.net.URL;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -51,6 +55,14 @@ public class MainController {
         workColumn.setCellValueFactory(new PropertyValueFactory<Task, String>("work"));
         numsColumn.setCellValueFactory(new PropertyValueFactory<Task, Integer>("nums"));
         raitingColumn.setCellValueFactory(new PropertyValueFactory<Task, Integer>("raiting"));
+
+        DataBaseHandler datb = new DataBaseHandler();
+        List<Task> list = datb.getPrepodAfterSingIn();
+        for (Task i:list
+             ) {
+            evv.add(i);
+        }
+        infoTable.setItems(evv);
 
         addButton.setOnAction(event -> {
             ListShaping ls = new ListShaping(new Treatment(textbox.getText()));

@@ -1,6 +1,8 @@
 import javafx.collections.ObservableList;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DataBaseHandler extends Configs{
     Connection dbConnection;
@@ -53,5 +55,27 @@ public class DataBaseHandler extends Configs{
                 ex.printStackTrace();
             }
         }
+    }
+
+    public List<Task> getPrepodAfterSingIn(){
+        ResultSet rset = null;
+        String sqlQuery = "SELECT * FROM todolist.works";
+        List<Task> list = new ArrayList<>();
+        Task task = null;
+        try(PreparedStatement statement = getDbConnection().prepareStatement(sqlQuery)){
+            rset = statement.executeQuery();
+            statement.execute();
+            while(rset.next()){
+                String pr = rset.getString(1);
+                String work = rset.getString(2);
+                int nums = Integer.parseInt(rset.getString(3));
+                int raiting = Integer.parseInt(rset.getString(4));
+                task = new Task(pr,work,nums,raiting);
+                list.add(task);
+            }
+        }catch(SQLException | ClassNotFoundException ex){
+            ex.getMessage();
+        }
+        return list;
     }
 }
