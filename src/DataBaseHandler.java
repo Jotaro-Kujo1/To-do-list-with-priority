@@ -57,6 +57,7 @@ public class DataBaseHandler extends Configs{
         }
     }
 
+    /*
     public List<Task> getPrepodAfterSingIn(){
         ResultSet rset = null;
         String sqlQuery = "SELECT * FROM todolist.works";
@@ -71,10 +72,31 @@ public class DataBaseHandler extends Configs{
                 int nums = Integer.parseInt(rset.getString(3));
                 int raiting = Integer.parseInt(rset.getString(4));
                 task = new Task(pr,work,nums,raiting);
+                System.out.println(task);
                 list.add(task);
             }
         }catch(SQLException | ClassNotFoundException ex){
-            ex.getMessage();
+            ex.printStackTrace();
+        }
+        return list;
+    }
+*/
+
+    public List<Task> readResultSet() throws SQLException, ClassNotFoundException{
+        String sqlQuery = "SELECT * FROM todolist.works";
+        List<Task> list = new ArrayList<>();
+        try(Statement statement = getDbConnection().createStatement()){
+            Task task = null;
+            ResultSet rs = statement.executeQuery(sqlQuery);
+            while(rs.next()){
+                String pr = rs.getString("name");
+                String work = rs.getString("work");
+                int nums = Integer.parseInt(rs.getString("nums"));
+                int raiting = Integer.parseInt(rs.getString("raiting"));
+                task = new Task(pr,work,nums,raiting);
+                System.out.println(task);
+                list.add(task);
+            }
         }
         return list;
     }

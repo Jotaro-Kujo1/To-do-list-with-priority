@@ -57,12 +57,17 @@ public class MainController {
         raitingColumn.setCellValueFactory(new PropertyValueFactory<Task, Integer>("raiting"));
 
         DataBaseHandler datb = new DataBaseHandler();
-        List<Task> list = datb.getPrepodAfterSingIn();
-        for (Task i:list
-             ) {
-            evv.add(i);
+        try{
+            List<Task> list = datb.readResultSet();
+            for (Task i:list
+            ) {
+                evv.add(i);
+            }
+            infoTable.setItems(evv);
+        }catch (SQLException | ClassNotFoundException ex){
+            ex.printStackTrace();
         }
-        infoTable.setItems(evv);
+
 
         addButton.setOnAction(event -> {
             ListShaping ls = new ListShaping(new Treatment(textbox.getText()));
