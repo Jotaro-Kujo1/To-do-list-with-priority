@@ -100,4 +100,13 @@ public class DataBaseHandler extends Configs{
         }
         return list;
     }
+
+    public void clearTable() {
+        String sqlQuery = "DELETE FROM todolist.works WHERE idworks>0";
+        try (PreparedStatement statement = getDbConnection().prepareStatement(sqlQuery)) {
+            statement.execute();
+        } catch (SQLException | ClassNotFoundException ex) {
+            ex.printStackTrace();
+        }
+    }
 }

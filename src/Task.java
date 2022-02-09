@@ -13,13 +13,18 @@ public class Task {
 
     }
 
+    /*
     public String toString() {
         return "Name='" + pr + '\'' +
                 ", task='" + work + '\'' +
                 ", nums='" + nums + '\'' +
                 ", raiting=" + raiting;
     }
+     */
 
+    public String toString(){
+        return pr + " " + work + " " + nums + " ";
+    }
     public String getPr() {
         return pr;
     }
