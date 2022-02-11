@@ -1,3 +1,4 @@
+import java.awt.print.Book;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
@@ -56,6 +57,9 @@ public class MainController {
     private Button closeButton;
 
     @FXML
+    private Button deleteButton;
+
+    @FXML
     void initialize() {
         prepodColumn.setCellValueFactory(new PropertyValueFactory<Task, String>("pr"));
         workColumn.setCellValueFactory(new PropertyValueFactory<Task, String>("work"));
@@ -107,6 +111,25 @@ public class MainController {
                 infoTable.setItems(evv);
 
                 //ev.forEach(System.out::println);
+            }
+        });
+
+        deleteButton.setOnAction(event -> {
+            Task selectBook = infoTable.getSelectionModel().getSelectedItem();
+            DataBaseHandler db = new DataBaseHandler();
+            db.deleteRecord(selectBook.getPr(), selectBook.getWork(), selectBook.getNums());
+            list.clear();
+            evv.clear();
+            try{
+                list = datb.readResultSet();
+                for (Task i:list
+                ) {
+                    evv.add(i);
+                }
+                infoTable.setItems(evv);
+                infoCheck = true;
+            }catch (SQLException | ClassNotFoundException ex){
+                ex.printStackTrace();
             }
         });
 

@@ -22,7 +22,8 @@
             <Font size="17.0" />
          </font>
       </TextField>
-      <Button fx:id="addButton" layoutX="40.0" layoutY="345.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="139.0" style="-fx-background-color: #FF6347;" text="Добавить" />
-      <Button fx:id="closeButton" layoutX="224.0" layoutY="345.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="139.0" style="-fx-background-color: #FF6347;" text="Закрыть" />
+      <Button fx:id="addButton" layoutX="21.0" layoutY="345.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" style="-fx-background-color: #FF6347;" text="Добавить" />
+      <Button fx:id="closeButton" layoutX="268.0" layoutY="345.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" style="-fx-background-color: #FF6347;" text="Закрыть" />
+      <Button fx:id="deleteButton" layoutX="145.0" layoutY="345.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" style="-fx-background-color: #FF6347;" text="Удалить" />
    </children>
 </AnchorPane>

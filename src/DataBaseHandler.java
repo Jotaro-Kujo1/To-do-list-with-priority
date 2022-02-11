@@ -109,4 +109,14 @@ public class DataBaseHandler extends Configs{
             ex.printStackTrace();
         }
     }
+
+    public void deleteRecord(String name, String works, int nums){
+        String sqlQuery = "DELETE FROM todolist.works WHERE name='" + name + "' " + "AND work='" + works + "' " + "AND nums=" +
+                nums;
+        try(PreparedStatement statement = getDbConnection().prepareStatement(sqlQuery)){
+            statement.execute();
+        }catch (SQLException | ClassNotFoundException ex){
+            ex.printStackTrace();
+        }
+    }
 }
