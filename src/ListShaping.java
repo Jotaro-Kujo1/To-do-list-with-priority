@@ -11,7 +11,6 @@ public class ListShaping {
     private Yud yudina;
     private Gan ganicheva;
     private Vin vinogradova;
-    private Map<String,Integer> raiting;
     private List<Integer> finRait;
     private List<Integer> finalRaitAfterSort;
     private List<String> prepodsAfterSort;
@@ -21,7 +20,6 @@ public class ListShaping {
 
     public ListShaping(Treatment tr){
         this.tr = tr;
-        raiting = new HashMap<String, Integer>();
         finRait = new ArrayList<Integer>();
         finalRaitAfterSort = new ArrayList<Integer>();
         prepodsAfterSort = new ArrayList<String>();
@@ -53,7 +51,6 @@ public class ListShaping {
                             pishnitskiy.calculationFinalCostKursach();
                             break;
                     }
-                    raiting.put(pishnitskiy.getName(),pishnitskiy.final_Cost);
                     finRait.add(pishnitskiy.final_Cost);
                     break;
                 case("Селяничев"):
@@ -69,7 +66,6 @@ public class ListShaping {
                             selyanichev.calculationFinalCostKursach();
                             break;
                     }
-                    raiting.put(selyanichev.getName(),selyanichev.final_Cost);
                     finRait.add(selyanichev.final_Cost);
                     break;
                 case("Юдина"):
@@ -85,7 +81,6 @@ public class ListShaping {
                             yudina.calculationFinalCostKursach();
                             break;
                     }
-                    raiting.put(yudina.getName(),yudina.final_Cost);
                     finRait.add(yudina.final_Cost);
                     break;
                 case("Ганичева"):
@@ -101,7 +96,6 @@ public class ListShaping {
                             ganicheva.calculationFinalCostKursach();
                             break;
                     }
-                    raiting.put(ganicheva.getName(),ganicheva.final_Cost);
                     finRait.add(ganicheva.final_Cost);
                     break;
                 case("Виноградова"):
@@ -117,7 +111,6 @@ public class ListShaping {
                             vinogradova.calculationFinalCostKursach();
                             break;
                     }
-                    raiting.put(vinogradova.getName(),vinogradova.final_Cost);
                     finRait.add(vinogradova.final_Cost);
                     break;
             }
@@ -128,7 +121,7 @@ public class ListShaping {
         List<String> tmpPrepods = tr.getPrepods();
         List<String> tmpWorks = tr.getWorks();
         List<Integer> tmpNums = tr.getNum();
-        SortedSet<Integer> values = new TreeSet<Integer>(raiting.values());
+        SortedSet<Integer> values = new TreeSet<Integer>(finRait);
 
 
         for(int i=0;i<tmpPrepods.size();i++){
