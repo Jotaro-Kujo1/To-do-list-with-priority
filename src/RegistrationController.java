@@ -28,6 +28,10 @@ public class RegistrationController {
 
     @FXML
     void initialize() {
+        signUpButtonReg.setOnMouseEntered(event -> {
+            signUpButtonReg.setStyle("-fx-background-color: #FF7F50;");
+        });
+        signUpButtonReg.setOnMouseExited(event -> signUpButtonReg.setStyle("-fx-background-color: #FF6347;"));
         signUpButtonReg.setOnAction(event -> {
             DataBaseHandler db = new DataBaseHandler();
             db.userRegistration(loginReg.getText(),passwordReg.getText());

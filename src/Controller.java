@@ -35,6 +35,10 @@ public class Controller {
 
     @FXML
     void initialize() {
+        signInButton.setOnMouseEntered(event -> {
+            signInButton.setStyle("-fx-background-color: #FF7F50;");
+        });
+        signInButton.setOnMouseExited(event -> signInButton.setStyle("-fx-background-color: #FF6347;"));
         signInButton.setOnAction(event -> {
             DataBaseHandler db = new DataBaseHandler();
             boolean lc = db.userLogIn(login.getText(), password.getText());
@@ -56,6 +60,10 @@ public class Controller {
             }
         });
 
+        signUpButton.setOnMouseEntered(event -> {
+            signUpButton.setStyle("-fx-background-color: #FF7F50;");
+        });
+        signUpButton.setOnMouseExited(event -> signUpButton.setStyle("-fx-background-color: #FF6347;"));
         signUpButton.setOnAction(event ->{
             signUpButton.getScene().getWindow().hide();
             FXMLLoader loader = new FXMLLoader();

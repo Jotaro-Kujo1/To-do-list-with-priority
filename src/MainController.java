@@ -82,6 +82,10 @@ public class MainController {
         }
 
 
+        addButton.setOnMouseEntered(event -> {
+            addButton.setStyle("-fx-background-color: #FF7F50;");
+        });
+        addButton.setOnMouseExited(event -> addButton.setStyle("-fx-background-color: #FF6347;"));
         addButton.setOnAction(event -> {
             if(infoCheck){
                 String tmp = "";
@@ -114,6 +118,10 @@ public class MainController {
             }
         });
 
+        deleteButton.setOnMouseEntered(event -> {
+            deleteButton.setStyle("-fx-background-color: #FF7F50;");
+        });
+        deleteButton.setOnMouseExited(event -> deleteButton.setStyle("-fx-background-color: #FF6347;"));
         deleteButton.setOnAction(event -> {
             Task selectBook = infoTable.getSelectionModel().getSelectedItem();
             DataBaseHandler db = new DataBaseHandler();
@@ -133,6 +141,10 @@ public class MainController {
             }
         });
 
+        closeButton.setOnMouseEntered(event -> {
+            closeButton.setStyle("-fx-background-color: #FF7F50;");
+        });
+        closeButton.setOnMouseExited(event -> closeButton.setStyle("-fx-background-color: #FF6347;"));
         closeButton.setOnAction(event -> {
             pushAfterClose();
         });
